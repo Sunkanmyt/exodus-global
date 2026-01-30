@@ -15,7 +15,7 @@ class Sermon(models.Model):
 class Event(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
-    start_time = models.DateTimeField() 
+    event_date = models.DateTimeField() 
     location = models.CharField(max_length=255, default="Online")
     registration_link = models.URLField(blank=True, null=True)
 
@@ -62,4 +62,18 @@ class Partner(models.Model):
 
     def __str__(self):
         return self.fullname
-    
+
+
+class MinistryInfo(models.Model):
+    name = models.CharField(max_length=255, default="Exodus Global")
+    vision = models.TextField()
+    mission = models.TextField()
+    history = models.TextField()
+    email_contact = models.EmailField()
+    phone_contact = models.CharField(max_length=20)
+
+    class Meta:
+        verbose_name_plural = "Ministry Info"
+
+    def __str___(self):
+        return self.name

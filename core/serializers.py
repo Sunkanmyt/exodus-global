@@ -1,12 +1,37 @@
 from rest_framework import serializers
-from .models import ContactMessage, Sermon
+from .models import Sermon, Event, Milestone, ContactMessage, Partnertier, Partner, MinistryInfo
+
+class SermonSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Sermon
+        fields = '__all__'
+
+class EventSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Event
+        fields = '__all__'
+    
+class MilestoneSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Milestone
+        fields = '__all__'
 
 class ContactMessageSerializer(serializers.ModelSerializer):
     class Meta:
         model = ContactMessage
         fields = '__all__'
 
-class SermonSerializer(serializers.ModelSerializer):
+class PartnertierSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Sermon
+        model = Partnertier
+        fields = '__all__'
+
+class PartnerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Partner
+        fields = '__all__'
+
+class MinistryInfoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MinistryInfo
         fields = '__all__'

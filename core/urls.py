@@ -1,9 +1,14 @@
-from django.urls import path
+from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import SermonViewSet # We need to create this next!
+from .views import (SermonViewSet, EventViewSet, MilestoneViewSet, ContactMessageViewSet, MinistryInfoViewSet)
 
-# This is the "Automated Address Book"
 router = DefaultRouter()
-router.register(r'sermons', SermonViewSet, basename='sermon')
+router.register(r'sermons', SermonViewSet)
+router.register(r'events', EventViewSet)
+router.register(r'gallery', MilestoneViewSet)
+router.register(r'contact', ContactMessageViewSet)
+router.register(r'about', MinistryInfoViewSet)
 
-urlpatterns = router.urls
+urlpatterns = [
+    path('', include(router.urls)),
+]
