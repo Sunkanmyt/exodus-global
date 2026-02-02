@@ -27,9 +27,10 @@ class PartnertierSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class PartnerSerializer(serializers.ModelSerializer):
+    tier_details = PartnertierSerializer(source='tier', read_only=True)
     class Meta:
         model = Partner
-        fields = '__all__'
+        fields = ['id', 'full_name', 'email', 'tier', 'tier_details', 'joined_on', 'is_active']
 
 class MinistryInfoSerializer(serializers.ModelSerializer):
     class Meta:
