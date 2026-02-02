@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+@theme {
+  --color-exodus: #efa602;
+  --color-exodus-dark: #cc8d02;
+}
